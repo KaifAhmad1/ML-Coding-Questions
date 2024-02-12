@@ -1,5 +1,5 @@
 # ML-Coding-Questions
-### ML Interview Questions(Theory):
+### Classical ML:
 #### Implement Linear Regression from Scratch? 
 - Class `LinearRegression` with `fit` and `predict` methods.
 - fit calculates the `slope` and intercept of the regression line using input data.
