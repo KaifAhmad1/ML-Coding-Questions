@@ -43,3 +43,37 @@
 - **Dropout:** Commonly used in neural networks, dropout regularization randomly sets a fraction of the input units to zero during training. This helps prevent overfitting by reducing the reliance on specific neurons.
 - **Early Stopping:** Instead of adding a penalty term to the loss function, early stopping stops the training process when the performance on a validation set starts to degrade, thereby preventing overfitting.
 - **Batch Normalization:** This involves normalizing the inputs of each layer in a neural network to have zero mean and unit variance. This can act as a form of regularization and speed up training.
+
+- **Explain the difference between classification and regression:**
+- Classification categorizes data into predefined classes or categories, producing discrete outputs, while regression predicts continuous numerical values, providing outputs that fall along a spectrum.
+
+- ### What is regression analysis?
+- Regression analysis is a statistical method used to model the relationship between a dependent variable and one or more independent variables. It aims to predict the value of the dependent variable based on the values of the independent variables.
+- ### What are the different types of regression analysis?
+- Common types include:
+- 1.  linear regression
+- 2.  polynomial regression
+- 3.  logistic regression
+-  4.  ridge regression
+-  5.  lasso regression
+-  6.  elastic net regression among others.
+- ### What is  linear regression:
+-  linear regression is a method to model the relationship between two continuous variables, typically denoted as 
+**Linear Regression**
+
+Linear regression is a statistical method used to model the relationship between two continuous variables. It is commonly denoted as:
+
+$$Y = \beta_0 + \beta_1X + \varepsilon$$
+
+**Formula:**
+- $$\**Y:** Dependent variable$$
+- **X:** Independent variable
+- **$$\beta_0$$:** Y-intercept
+- **$$\beta_1$$:** Slope of the line
+- **$$\varepsilon$$:** Error term
+
+
+  
+
+
+
