@@ -1,6 +1,10 @@
 # ML-Coding-Questions
 ### ML Interview Questions(Theory):
 #### Implement Linear Regression from Scratch? 
+- Class `LinearRegression` with `fit` and `predict` methods.
+- fit calculates the `slope` and intercept of the regression line using input data.
+- predict predicts output values using the trained model.
+- In the __main__ block, sample data is used to train the model, and a test data point is used to make a prediction.
 ``` Python 
 class LinearRegression:
     def __init__(self):
