@@ -6,29 +6,45 @@
 - predict predicts output values using the trained model.
 - In the __main__ block, sample data is used to train the model, and a test data point is used to make a prediction.
 ``` Python 
+import numpy as np
+
 class LinearRegression:
-    def __init__(self):
-        self.weight = None
+    def __init__(self, learning_rate=0.01, num_iterations=1000):
+        self.learning_rate = learning_rate
+        self.num_iterations = num_iterations
+        self.weights = None
         self.bias = None
 
     def fit(self, X, y):
-        mean_X = sum(X) / len(X)
-        mean_y = sum(y) / len(y)
-        numerator = sum((X[i] - mean_X) * (y[i] - mean_y) for i in range(len(X)))
-        denominator = sum((X[i] - mean_X) ** 2 for i in range(len(X)))
-        self.weight = numerator / denominator
-        self.bias = mean_y - self.weight * mean_X
+        num_samples, num_features = X.shape
+        self.weights = np.zeros(num_features)
+        self.bias = 0
+
+        # Gradient Descent
+        for _ in range(self.num_iterations):
+            # Predictions
+            y_predicted = np.dot(X, self.weights) + self.bias
+
+            # Compute gradients
+            dw = (1 / num_samples) * np.dot(X.T, (y_predicted - y))
+            db = (1 / num_samples) * np.sum(y_predicted - y)
+
+            # Update parameters
+            self.weights -= self.learning_rate * dw
+            self.bias -= self.learning_rate * db
 
     def predict(self, X):
-        return [self.weight * x + self.bias for x in X]
+        return np.dot(X, self.weights) + self.bias
 
-if __name__ == "__main__":
-    X = [1, 2, 3, 4, 5]
-    y = [2, 3, 4, 5, 6]
-    model = LinearRegression()
-    model.fit(X, y)
-    X_test = [6]
-    print("Prediction:", model.predict(X_test))
+# Example usage:
+X = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+y = np.array([3, 6, 9])
+
+model = LinearRegression(learning_rate=0.01, num_iterations=1000)
+model.fit(X, y)
+predictions = model.predict(X)
+print(predictions)
+
 ```
 
 #### Implement Logistic Regression from Scratch. 
@@ -49,38 +65,46 @@ class LogisticRegression:
         self.weights = None
         self.bias = None
 
+    def sigmoid(self, z):
+        return 1 / (1 + np.exp(-z))
+
     def fit(self, X, y):
-        self.weights = np.zeros(X.shape[1])
+        num_samples, num_features = X.shape
+        self.weights = np.zeros(num_features)
         self.bias = 0
-        
+
+        # Gradient Descent
         for _ in range(self.num_iterations):
+            # Linear model
             linear_model = np.dot(X, self.weights) + self.bias
-            y_predicted = 1 / (1 + np.exp(-linear_model))
+            # Sigmoid function
+            y_predicted = self.sigmoid(linear_model)
 
-            dw = np.dot(X.T, (y_predicted - y)) / len(X)
-            db = np.sum(y_predicted - y) / len(X)
+            # Compute gradients
+            dw = (1 / num_samples) * np.dot(X.T, (y_predicted - y))
+            db = (1 / num_samples) * np.sum(y_predicted - y)
 
+            # Update parameters
             self.weights -= self.learning_rate * dw
             self.bias -= self.learning_rate * db
 
     def predict(self, X):
         linear_model = np.dot(X, self.weights) + self.bias
-        y_predicted = 1 / (1 + np.exp(-linear_model))
-        return (y_predicted > 0.5).astype(int)
+        y_predicted = self.sigmoid(linear_model)
+        y_predicted_cls = [1 if i > 0.5 else 0 for i in y_predicted]
+        return y_predicted_cls
 
 # Example usage:
-if __name__ == "__main__":
-    X_train = np.array([[1, 2, 3],
-                        [4, 5, 6],
-                        [7, 8, 9]])
-    y_train = np.array([0, 1, 1])
+X = np.array([[1, 2], [2, 3], [3, 4], [4, 5], [5, 6]])
+y = np.array([0, 0, 1, 1, 1])
 
-    model = LogisticRegression()
-    model.fit(X_train, y_train)
+model = LogisticRegression(learning_rate=0.01, num_iterations=1000)
+model.fit(X, y)
+predictions = model.predict(X)
+print(predictions)
 
-    X_test = np.array([[2, 3, 4]])
-    print("Prediction:", model.predict(X_test))
 ```
+
 
 ### Deep Learning 
 Implementing a Feedforward Neural Network (FNN) from scratch.
