@@ -36,7 +36,7 @@ class LinearRegression:
     def predict(self, X):
         return np.dot(X, self.weights) + self.bias
 
-# Example usage:
+# Input:
 X = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 y = np.array([3, 6, 9])
 
@@ -94,7 +94,7 @@ class LogisticRegression:
         y_predicted_cls = [1 if i > 0.5 else 0 for i in y_predicted]
         return y_predicted_cls
 
-# Example usage:
+# Input:
 X = np.array([[1, 2], [2, 3], [3, 4], [4, 5], [5, 6]])
 y = np.array([0, 0, 1, 1, 1])
 
@@ -104,6 +104,44 @@ predictions = model.predict(X)
 print(predictions)
 
 ```
+
+### Implement the K-nearest neighbours algorithm to classify data points into different classes.
+- **Training Phase:**
+- 1. Store all training samples and their corresponding class labels.
+- **Prediction Phase:**
+- 1. Calculate distances to all training samples.
+- 2. Select the K nearest neighbours based on distance.
+- 3. Determine the majority class among the K neighbours.
+- 4. Assign this class to the test sample.
+
+``` Python
+from collections import Counter
+import numpy as np
+
+def knn_predict(X_train, y_train, X_test, k=3):
+    predictions = []
+    for x_test in X_test:
+        distances = [np.linalg.norm(x_train - x_test) for x_train in X_train]
+        nearest_indices = np.argsort(distances)[:k]
+        nearest_labels = [y_train[i] for i in nearest_indices]
+        most_common_label = Counter(nearest_labels).most_common(1)[0][0]
+        predictions.append(most_common_label)
+    return predictions
+
+# Input:
+X_train = np.array([[1, 2], [2, 3], [3, 4], [4, 5]])
+y_train = np.array([0, 0, 1, 1])
+
+X_test = np.array([[5, 6], [0, 1]])
+
+predictions = knn_predict(X_train, y_train, X_test, k=3)
+print("Predictions:", predictions)
+```
+
+
+
+
+
 
 
 ### Deep Learning 
