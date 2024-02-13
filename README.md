@@ -161,3 +161,25 @@ optimized_theta, loss_values = gradient_descent(squared_loss, initial_theta, lea
 print("Optimized theta:", optimized_theta)
 print("Final loss:", loss_values[-1])
 ```
+
+- Different flavours of Gradient Descent:
+   1. **Batch Gradient Descent:** Batch Gradient Descent is an optimization algorithm used in machine learning where, during each iteration, it calculates the gradient of the cost function using the entire training dataset to update the model parameters in the direction that minimizes the cost.
+  ``` Python 
+  import numpy as np
+  def batch_gradient_descent(X, y, learning_rate=0.01, n_iterations=1000, epsilon=1e-6):
+    theta = np.zeros(X.shape[1])  # Initialize coefficients with zeros
+    for _ in range(n_iterations):  # Perform gradient descent iterations
+        gradient = X.T.dot(X.dot(theta) - y) / len(X)  # Compute gradient
+        theta -= learning_rate * gradient  # Update coefficients
+        if np.linalg.norm(learning_rate * gradient) < epsilon:  # Check convergence
+            break
+    return theta
+  # Input:
+  np.random.seed(0)
+  X = 2 * np.random.rand(100, 3)
+  y = 4 + np.dot(X, np.array([3, 5, 2])) + np.random.randn(100)
+  X_b = np.c_[np.ones((100, 1)), X]
+  theta = batch_gradient_descent(X_b, y)
+  print("Optimized Coefficients:", theta)
+  ```
+   2. **Stochastic Gradient Descent:** 
