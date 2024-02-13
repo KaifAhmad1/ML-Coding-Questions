@@ -46,3 +46,13 @@ Machine Translation with Attention Mechanism: Write a machine translation model 
 Machine Translation with Sequence-to-Sequence Models: Write a machine translation model using sequence-to-sequence models.
 TF-IDF: Write a program to calculate TF-IDF scores for words in a corpus.
 Text Similarity: Write a program to calculate similarity between two texts.
+Implementing a Transformer architecture from scratch: Code an implementation of the Transformer architecture, including self-attention mechanism, feed-forward neural network, and positional encoding.
+Transformer Encoder and Decoder implementation: Write code to implement both the Transformer Encoder and Decoder components separately.
+Positional Encoding: Write a function to generate positional encodings for the input sequences in a Transformer model.
+Self-Attention Mechanism: Implement the self-attention mechanism, including scaled dot-product attention and multi-head attention.
+Masked Self-Attention for language generation: Code the masked self-attention mechanism used in the decoder side of the Transformer to prevent the model from attending to future tokens during training.
+Transformer Training loop: Write a training loop for training a Transformer model on a given dataset, including forward pass, backward pass, and parameter updates.
+Beam Search for decoding: Implement the beam search algorithm for decoding generated sequences using a trained Transformer model.
+Position-wise Feed-Forward Networks: Code the position-wise feed-forward networks used in the Transformer model.
+Embedding Layers: Implement the embedding layers for both tokens and positions in the Transformer model.
+Transformer-based sequence classification: Write code to use a pre-trained Transformer model for sequence classification tasks, such as sentiment analysis or text classification.
