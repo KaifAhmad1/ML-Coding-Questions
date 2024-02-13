@@ -88,3 +88,24 @@ def elu(x):
 x = np.array([2, 1, 0.3, -0.7, -2, 6])
 print(elu(x))
 ```
+6. **Softmax Function:** The softmax activation function is commonly used, especially in the output layer of neural networks for multi-class classification tasks. It takes a vector of arbitrary real-valued scores (often called logits) and transforms them into a probability distribution over multiple classes.
+   - **Use Cases:** The softmax activation function is commonly used in the output layer of neural networks for multi-class classification tasks. Its primary purpose is to generate a probability distribution over multiple classes, allowing the model to predict the most likely class for a given input. This function is widely employed in applications such as image classification, natural language processing, speech recognition, medical diagnosis, and gesture recognition.
+
+     `softmax(z_i) = exp(z_i) / sum(exp(z_j) for j in range(K))`
+
+   -  `softmax(z_i)`: Probability of the i-th class after softmax
+   - `exp(z_i)`: Exponential of the i-th logit
+   - `sum(exp(z_j) for j in range(K))`: Sum of exponentiated logits for all classes
+   - `for j in range(K)`: Loop over all classes, where K is the total number of classes
+
+``` Python 
+import numpy as np
+def softmax(z):
+    e_z = np.exp(z - np.max(z))  # Subtracting the maximum value for numerical stability
+    return e_z / np.sum(e_z)
+
+# Input:
+z = np.array([1.0, 2.0, 3.0])
+softmax_output = softmax(z)
+print("Softmax output:", softmax_output)
+```
