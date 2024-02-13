@@ -44,4 +44,28 @@ def tanh(x):
 x = np.array([1, 3, 2, 9, -.2, -0.07])
 print(tanh(x))
 ```
+ 3. **ReLU Function:** ReLU stands for Rectified Linear Unit. It is an activation function commonly used in neural networks. The ReLU function is defined as it simply outputs the input x if x is positive, and zero otherwise. In other words, it `rectifies` negative values to zero, while leaving positive values unchanged.
 
+    `f{x} = max(0, x)`
+  - **Use Cases:**  ReLU (Rectified Linear Unit) is a fundamental activation function in deep learning, widely valued for its ability to combat gradient vanishing, enhance computational efficiency, promote sparsity, and facilitate the training of deep neural networks. Its simplicity and effectiveness make it a cornerstone in various applications, including image classification, natural language processing, and beyond.
+``` Python 
+import numpy as np 
+def relu(x):
+  return np.maximum(0, x)
+# Input 
+x = np.array([2, 1, 0.3, -0.7, -2, 6])
+print(relu(x))
+```
+4. **Leaky ReLU Function:** Leaky ReLU (Rectified Linear Unit) is an activation function used in deep learning that introduces a small, non-zero slope for negative inputs, preventing neurons from becoming completely inactive. It addresses the `dying ReLU` problem by allowing a small gradient for negative values, improving the robustness and effectiveness of neural networks.
+ - **Use Cases:** Leaky ReLU keeps gradients stable for smoother training and prevents neuron saturation by staying active across a wider range of inputs. It boosts model resilience to noise, promotes efficient activation, handles tricky data well, and supports stable GAN training.
+   
+   `f{x} = max(alpha * x, x)` where alpha is a very small positive constant
+   ``` Python 
+   import numpy as np
+   def leaky_relu(x):
+   alpha = 0.01
+     return np.where(x > 0, x, alpha * x)
+   # Input 
+   x = np.array([2, 1, 0.3, -0.7, -2, 6])
+    print(leaky_relu(x))
+   ```
