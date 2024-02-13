@@ -109,3 +109,55 @@ z = np.array([1.0, 2.0, 3.0])
 softmax_output = softmax(z)
 print("Softmax output:", softmax_output)
 ```
+#### What is the purpose of optimization algorithms in deep learning? Can you explain some of the optimization algorithms in deep learning with their implementation and use cases? 
+The purpose of optimization algorithms in deep learning is to minimize the loss function, improving the model's ability to make accurate predictions by adjusting its parameters iteratively during training.
+
+There are several types of optimization algorithms used in deep learning, and they can be categorized based on whether they use derivative information and whether the objective function is differentiable. Here are some of the main types of optimization algorithms used in deep learning: 
+1. **Gradient Descent:** Gradient Descent is an optimization algorithm used to minimize the loss function in machine learning models. It iteratively adjusts the parameters of the model in the direction of the steepest descent of the gradient of the loss function. Here's a detailed explanation along with the algorithm and implementation
+   - Initialize the parameters `theta` randomly or with some `predefined values`.
+   - Repeat until convergence:
+   - Compute the gradient of the loss function concerning the parameters: `gradient = compute_gradient(loss_function, theta)`.
+   - Update the parameters using the gradient and the learning rate: `theta = theta - learning_rate * gradient`.
+   - Check for convergence criteria (e.g., small change in the loss function or maximum number of iterations reached).
+
+``` Python 
+import numpy as np
+# Gradient Descent optimization algorithm
+def gradient_descent(loss_function, initial_theta, learning_rate, max_iterations=1000, epsilon=1e-6):
+    theta = initial_theta  # Initialize parameters
+    loss_values = []  # Track loss values
+    
+    for iteration in range(max_iterations):
+        gradient = compute_gradient(loss_function, theta)  # Compute gradient
+        theta -= learning_rate * gradient  # Update parameters
+        loss = loss_function(theta)  # Compute loss
+        loss_values.append(loss)  # Store loss value
+        if len(loss_values) > 1 and abs(loss_values[-1] - loss_values[-2]) < epsilon:  # Check convergence
+            break
+    
+    return theta, loss_values
+
+# Compute gradient of the loss function
+def compute_gradient(loss_function, theta, epsilon=1e-6):
+    gradient = np.zeros_like(theta)  # Initialize gradient vector
+    
+    for i in range(len(theta)):
+        theta_plus = theta.copy()  # Make a copy of theta
+        theta_plus[i] += epsilon  # Perturb theta slightly
+        gradient[i] = (loss_function(theta_plus) - loss_function(theta)) / epsilon  # Compute finite difference
+    
+    return gradient
+
+# loss function (squared loss)
+def squared_loss(theta):
+    return (theta - 5) ** 2
+
+# Set initial parameters and hyperparameters
+initial_theta = np.array([0.0])
+learning_rate = 0.3
+
+# Run gradient descent optimization
+optimized_theta, loss_values = gradient_descent(squared_loss, initial_theta, learning_rate)
+print("Optimized theta:", optimized_theta)
+print("Final loss:", loss_values[-1])
+```
