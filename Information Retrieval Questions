@@ -1,1 +1,29 @@
-
+Term Frequency Calculation: Write a program to calculate the term frequency of terms in a document.
+Document Frequency Calculation: Implement a function to calculate the document frequency of terms in a corpus.
+Inverted Index Construction: Create an inverted index from a collection of documents.
+Boolean Retrieval Model: Implement a simple Boolean retrieval model to retrieve documents based on Boolean queries.
+TF-IDF Calculation: Write a program to calculate TF-IDF scores for terms in a given corpus.
+Vector Space Model (VSM): Implement a basic VSM for document retrieval based on cosine similarity.
+Cosine Similarity Calculation: Write a program to calculate the cosine similarity between two documents.
+Okapi BM25: Implement the Okapi BM25 algorithm for document ranking.
+Language Models for Information Retrieval: Implement a basic language model for document retrieval.
+Top-k Retrieval: Write a function to retrieve the top-k documents for a given query.
+Term Weighting Schemes: Implement different term weighting schemes like binary, TF, IDF, etc., for document retrieval.
+Inverted Index Compression: Implement compression techniques like front coding or gamma encoding for the inverted index.
+PageRank Algorithm: Write a program to compute the PageRank of web pages in a network.
+HITS Algorithm: Implement the HITS algorithm for authority and hub scores computation.
+PageRank with Damping Factor: Write a program to compute PageRank with a damping factor.
+Spelling Correction: Write a program to correct misspelled terms in a query using techniques like edit distance.
+Query Expansion: Implement query expansion techniques like pseudo-relevance feedback or synonym-based expansion.
+Document Clustering: Implement a document clustering algorithm for organizing search results.
+k-Nearest Neighbors (k-NN) Search: Implement a k-NN search algorithm to find the nearest neighbors of a query vector.
+Approximate Nearest Neighbors (ANN): Implement an algorithm for approximate nearest neighbor search, such as Locality Sensitive Hashing (LSH).
+Inverted Index with Vector Space Model: Extend an inverted index to support vector space model operations like cosine similarity.
+k-Means Clustering: Implement the k-means clustering algorithm for vector data.
+Hierarchical Clustering: Write a program to perform hierarchical clustering on a set of vectors.
+Vector Quantization: Implement vector quantization techniques like k-means clustering for codebook generation.
+Binary Space Partitioning (BSP): Implement BSP trees for efficient spatial indexing of high-dimensional vectors.
+Product Quantization: Implement product quantization for vector compression and efficient nearest neighbor search.
+Locality-Sensitive Hashing (LSH): Implement LSH for approximate nearest neighbor search in high-dimensional spaces.
+MinHashing: Write a program to perform MinHashing for estimating Jaccard similarity between sets of vectors.
+Implement the construction phase of the HNSW algorithm: Given a dataset of high-dimensional vectors, write a program to build the HNSW graph structure.
