@@ -63,9 +63,21 @@ print(relu(x))
    ``` Python 
    import numpy as np
    def leaky_relu(x):
-   alpha = 0.01
+     alpha = 0.01
      return np.where(x > 0, x, alpha * x)
    # Input 
    x = np.array([2, 1, 0.3, -0.7, -2, 6])
     print(leaky_relu(x))
    ```
+5. **ELU Function:** ELU (Exponential Linear Unit) is an activation function used in deep learning. It behaves like the identity function for positive inputs, directly returning the input value. However, for negative inputs, it applies a non-linear transformation using the exponential function, resulting in a smooth curve that asymptotically approaches -1. This transformation helps prevent "dead" neurons during training, ensuring effective learning in neural networks.
+
+` f(x) = {  x  if x > 0, alpha * (e^x - 1)  if x <= 0} `
+``` Python 
+import numpy as np 
+def elu(x):
+  alpha = 0.01
+  return np.where(x > 0, x, alpha * (np.exp(x) - 1))
+# Input 
+x = np.array([2, 1, 0.3, -0.7, -2, 6])
+print(elu(x))
+```
