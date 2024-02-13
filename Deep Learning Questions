@@ -1,0 +1,35 @@
+Easier:
+Implementing a simple perceptron from scratch.
+Building a linear regression model using gradient descent.
+Creating a logistic regression model for binary classification.
+Implementing a basic feedforward neural network with one hidden layer.
+Building a simple neural network for XOR gate prediction.
+Implementing a linear classifier using softmax regression.
+Building a basic convolutional neural network (CNN) for image classification with one convolutional layer.
+Implementing a simple recurrent neural network (RNN) for sequence prediction.
+Building a basic autoencoder for dimensionality reduction.
+Implementing a basic deep belief network (DBN) with one hidden layer.
+Building a basic policy gradient algorithm for reinforcement learning.
+Building a basic recurrent neural network (RNN) for sentiment analysis.
+
+
+
+Intermediate:
+Building a basic neural network for classifying emails as spam or not spam.
+Building a basic feedforward neural network for housing price prediction.
+Implementing a linear regression model using normal equations.
+Implementing a simple long short-term memory (LSTM) network for text generation.
+Building a basic neural network for predicting student grades based on study hours.
+Implementing a simple linear regression model with polynomial features.
+Building a basic neural network for predicting stock prices.
+Implementing a simple recurrent neural network (RNN) for predicting the next word in a sentence.
+
+
+Advance: 
+Building a basic recurrent neural network (RNN) for time series prediction.
+Implementing a simple recurrent neural network (RNN) for sentiment analysis.
+Implementing a simple recurrent neural network (RNN) for music generation.
+Developing a Transformer model for sequence-to-sequence tasks.
+Building an Attention mechanism for sequence modeling.
+Building a Hierarchical Attention Network for document classification.
+Building a Graph Convolutional Network (GCN) for graph-based data.
