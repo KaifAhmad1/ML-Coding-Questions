@@ -70,6 +70,13 @@ print(relu(x))
     print(leaky_relu(x))
    ```
 5. **ELU Function:** ELU (Exponential Linear Unit) is an activation function used in deep learning. It behaves like the identity function for positive inputs, directly returning the input value. However, for negative inputs, it applies a non-linear transformation using the exponential function, resulting in a smooth curve that asymptotically approaches -1. This transformation helps prevent "dead" neurons during training, ensuring effective learning in neural networks.
+ - **Use Cases:**
+   - 1. **Robustness:** ELU prevents "dead" neurons and handles negative inputs effectively.
+   - 2. **Smooth Gradient:** Provides stable training with a smooth gradient.
+   - 3. **Rich Representation:** Allows for richer representation learning.
+   - 4. **Vanishing Gradient:** Addresses the vanishing gradient problem effectively.
+   - 5. **Implicit Regularization:** Acts as implicit regularization to prevent overfitting.
+
 
 ` f(x) = {  x  if x > 0, alpha * (e^x - 1)  if x <= 0} `
 ``` Python 
