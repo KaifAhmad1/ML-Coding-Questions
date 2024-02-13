@@ -265,3 +265,5 @@ print("Predictions after training:")
 print(nn.forward(X))
 
 ```
+
+### Deep Learning:
