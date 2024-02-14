@@ -2,7 +2,7 @@
 ## Classical ML:
 W.I.P
 ## Deep Learning:
-#### What are the components of a basic neural network architecture?
+### What are the components of a basic neural network architecture?
 A basic neural network architecture comprises:
  1. **Input Layer:** Receives input data.
  2. **Hidden Layers:** Process input through weighted connections.
@@ -13,7 +13,7 @@ A basic neural network architecture comprises:
  7. **Optimization Algorithm:** Updates weights to minimize loss.
  8. **Learning Rate:** Controls step size during optimization.
 
-#### Can you explain the purpose of activation functions in neural networks, and could you describe a few different types of activation functions commonly used in deep learning with their use cases?
+### Can you explain the purpose of activation functions in neural networks, and could you describe a few different types of activation functions commonly used in deep learning with their use cases?
 - Activation functions play a crucial role in neural networks by introducing non-linearity to the model, enabling it to learn complex patterns and relationships in the data. Without activation functions, neural networks would essentially reduce to a series of linear transformations, limiting their ability to approximate complex functions.
 - Here are a few commonly used activation functions in deep learning:
  1. **Sigmoid Function:** The sigmoid function, also known as the logistic function, squashes the input to the range `[0, 1]`.
@@ -109,7 +109,7 @@ z = np.array([1.0, 2.0, 3.0])
 softmax_output = softmax(z)
 print("Softmax output:", softmax_output)
 ```
-#### What is the purpose of optimization algorithms in deep learning? Can you explain some of the optimization algorithms in deep learning with their implementation and use cases? 
+### What is the purpose of optimization algorithms in deep learning? Can you explain some of the optimization algorithms in deep learning with their implementation and use cases? 
 The purpose of optimization algorithms in deep learning is to minimize the loss function, improving the model's ability to make accurate predictions by adjusting its parameters iteratively during training.
 
 There are several types of optimization algorithms used in deep learning, and they can be categorized based on whether they use derivative information and whether the objective function is differentiable. Here are some of the main types of optimization algorithms used in deep learning: 
@@ -294,4 +294,22 @@ batch_size = 10
 optimized_theta, loss_values = mini_batch_gradient_descent(squared_loss, initial_theta, learning_rate, dataset, batch_size)
 print("Optimized theta:", optimized_theta)
 print("Final loss:", loss_values[-1])
+```
+### Can you explain the purpose of loss functions in neural networks, and could you describe a few different types of loss functions commonly used in deep learning with their use cases?
+**Loss Function:** Loss functions, also known as cost functions or objective functions, are crucial components in deep learning models. They measure the difference between predicted values and ground truth labels, providing a measure of how well the model is performing during training. Here are some common types of loss functions used in deep learning:
+1. **Mean Squared Error (MSE):**
+   MSE is commonly used in regression tasks to predict continuous values. It computes the average of squared differences between predicted values (ŷ_i) and actual values (y_i). Squaring errors amplifies larger errors, thus MSE is sensitive to outliers, penalizing them more heavily. MSE is differentiable and convex, making it compatible with optimization algorithms like gradient descent. However, MSE's performance can be influenced by data scale, and outliers can notably affect the loss.
+   
+   `MSE = (1/n) * Σ(y_i - ŷ_i)^2`
+``` Python 
+import numpy as np 
+def mean_squared_error(y_true, y_predict):
+  
+  cal = np.mean((np.array(y_true) - np.array(y_predict)) ** 2)
+  return cal
+# Input 
+y_true = [3, -0.5, 2, 7]
+y_pred = [2.5, 0.0, 2, 8]
+mse = mean_squared_error(y_true, y_pred)
+print("Mean Squared Error (MSE):", mse)
 ```
