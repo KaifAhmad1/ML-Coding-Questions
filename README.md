@@ -313,3 +313,56 @@ y_pred = [2.5, 0.0, 2, 8]
 mse = mean_squared_error(y_true, y_pred)
 print("Mean Squared Error (MSE):", mse)
 ```
+2. **Mean Absolute Error:** MAE is another common metric used in regression tasks to predict continuous values. It calculates the average of absolute differences between predicted values (ŷ_i) and actual values (y_i). Unlike MSE, MAE is less sensitive to outliers because it doesn't square the errors. This property makes MAE more robust in the presence of extreme values. Additionally, MAE is easy to interpret since it represents the average magnitude of errors. However, like MSE, MAE's performance can still be influenced by data scale. Overall, MAE provides a straightforward measure of the model's performance in regression tasks.
+ 
+ `MAE = (1/n) * Σ|y_i - ŷ_i|`
+``` Python 
+ import numpy as np
+
+def mean_absolute_error(y_true, y_pred):
+    return np.mean(np.abs(np.array(y_true) - np.array(y_pred)))
+
+# Input
+y_true = [3, -0.5, 2, 7]
+y_pred = [2.5, 0.0, 2, 8]
+
+mae = mean_absolute_error(y_true, y_pred)
+print("Mean Absolute Error (MAE):", mae)
+```
+3. **Binary Cross-Entropy (Logistic Loss):** Binary Cross-Entropy, also known as logistic loss, finds common usage in binary classification tasks, where the output probability lies between 0 and 1. It quantifies the disparity between the predicted probability (ŷ_i) and the true label (y_i). Notably, it heavily penalizes confidently wrong predictions, urging the model to assign high probabilities to correct classes and low probabilities to incorrect classes. Derived from information theory, binary cross-entropy is extensively applied in logistic regression and neural networks employing sigmoid activation functions in the output layer.
+
+ `Binary Cross-Entropy = -(1/n) * Σ[y_i * log(ŷ_i) + (1 - y_i) * log(1 - ŷ_i)]`
+
+``` Python 
+import numpy as np
+
+def binary_cross_entropy(y_true, y_pred):
+    y_true = np.array(y_true)
+    y_pred = np.clip(y_pred, 1e-15, 1 - 1e-15)
+    return -(np.mean(y_true * np.log(y_pred) + (1 - y_true) * np.log(1 - y_pred)))
+
+# Input:
+y_true = [1, 0, 1, 0]
+y_pred = [0.9, 0.2, 0.8, 0.1]
+
+bce = binary_cross_entropy(y_true, y_pred)
+print("Binary Cross-Entropy (Logistic Loss):", bce)
+```
+4. **Categorical Cross-Entropy (Softmax Loss):** Categorical Cross-Entropy is commonly utilized in multi-class classification tasks, where the output consists of multiple classes, each represented by a probability score. It measures the discrepancy between the predicted class probabilities `ŷ_{ij}`  and the true class labels `y_{ij}` for each example in the dataset. This loss function penalizes incorrect predictions heavily, encouraging the model to assign high probabilities to the true classes and low probabilities to the false classes.
+
+`Categorical Cross-Entropy = -(1/n) * Σ(Σ[y_{ij} * log(ŷ_{ij})])`
+``` Python 
+import numpy as np
+
+def categorical_cross_entropy(y_true, y_pred):
+    y_true = np.array(y_true)
+    y_pred = np.clip(y_pred, 1e-15, 1 - 1e-15)
+    return -(np.mean(np.sum(y_true * np.log(y_pred), axis=1)))
+
+# Input:
+y_true = [[0, 1, 0], [1, 0, 0], [0, 0, 1]]  # One-hot encoded true labels
+y_pred = [[0.2, 0.7, 0.1], [0.9, 0.1, 0.0], [0.1, 0.2, 0.7]]  # Predicted probabilities
+
+cce = categorical_cross_entropy(y_true, y_pred)
+print("Categorical Cross-Entropy (Softmax Loss):", cce)
+```
