@@ -182,4 +182,7 @@ print("Final loss:", loss_values[-1])
   theta = batch_gradient_descent(X_b, y)
   print("Optimized Coefficients:", theta)
   ```
-   2. **Stochastic Gradient Descent:** 
+   2. **Stochastic Gradient Descent:** Gradient Descent is an optimization algorithm used to minimize a function by iteratively moving in the direction of the steepest decrease of the function. At each iteration, the algorithm calculates the gradient of the loss function concerning the parameters (weights) of the model. It then updates the parameters by moving them in the opposite direction of the gradient, scaled by a small factor known as the learning rate.
+     - In standard Gradient Descent, the algorithm computes the gradient of the loss function over the entire dataset for each iteration, which can be computationally expensive, especially for large datasets.
+Stochastic Gradient Descent addresses this issue by updating the parameters based on the gradient of the loss function computed on a single random data point (or a small batch of data points) at each iteration.
+This randomness in selecting a single data point or a batch makes the optimization process stochastic.
