@@ -8,13 +8,13 @@ Text Normalization: Implement text normalization techniques like case folding an
 Spell Checking: Write a spell checking program for a given text.
 Text Segmentation: Implement a program to segment a text into coherent parts.
 Language Detection: Create a program to detect the language of a given text.
-Word Embeddings: Implement Word2Vec or GloVe for generating word embeddings.
 Named Entity Recognition (NER): Implement a basic NER system.
 Part-of-Speech (POS) Tagging: Write a program to perform POS tagging on a text.
 Lemmatization: Create a function to perform lemmatization on a text.
 Stemming: Implement a stemming algorithm such as Porter or Snowball.
 Dependency Parsing: Write a program to perform dependency parsing on a sentence.
 Semantic Role Labeling (SRL): Write a program to perform semantic role labeling on a sentence.
+Word Embeddings: Implement Word2Vec or GloVe for generating word embeddings.
 Named Entity Recognition for Biomedical Text: Implement a NER system tailored for biomedical texts.
 Named Entity Recognition for Social Media: Implement a NER system specifically tailored for social media texts.
 Named Entity Recognition with Transfer Learning: Write a NER system using transfer learning techniques.
