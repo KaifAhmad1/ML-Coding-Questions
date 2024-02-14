@@ -113,7 +113,8 @@ print("Softmax output:", softmax_output)
 The purpose of optimization algorithms in deep learning is to minimize the loss function, improving the model's ability to make accurate predictions by adjusting its parameters iteratively during training.
 
 There are several types of optimization algorithms used in deep learning, and they can be categorized based on whether they use derivative information and whether the objective function is differentiable. Here are some of the main types of optimization algorithms used in deep learning: 
-1. **Gradient Descent:** Gradient Descent is an optimization algorithm used to minimize the loss function in machine learning models. It iteratively adjusts the parameters of the model in the direction of the steepest descent of the gradient of the loss function. Here's a detailed explanation along with the algorithm and implementation
+ #### Gradient Descent:
+ Gradient Descent is an optimization algorithm used to minimize the loss function in machine learning models. It iteratively adjusts the parameters of the model in the direction of the steepest descent of the gradient of the loss function. Here's a detailed explanation along with the algorithm and implementation
    - Initialize the parameters `theta` randomly or with some `predefined values`.
    - Repeat until convergence:
    - Compute the gradient of the loss function concerning the parameters: `gradient = compute_gradient(loss_function, theta)`.
@@ -163,7 +164,7 @@ print("Final loss:", loss_values[-1])
 ```
 
 - Different flavours of Gradient Descent:
-   1. **Batch Gradient Descent:** Batch Gradient Descent is an optimization algorithm used in machine learning where, during each iteration, it calculates the gradient of the cost function using the entire training dataset to update the model parameters in the direction that minimizes the cost.
+ 1. **Batch Gradient Descent:** Batch Gradient Descent is an optimization algorithm used in machine learning where, during each iteration, it calculates the gradient of the cost function using the entire training dataset to update the model parameters in the direction that minimizes the cost.
   ``` Python 
   import numpy as np
   def batch_gradient_descent(X, y, learning_rate=0.01, n_iterations=1000, epsilon=1e-6):
@@ -182,7 +183,7 @@ print("Final loss:", loss_values[-1])
   theta = batch_gradient_descent(X_b, y)
   print("Optimized Coefficients:", theta)
   ```
-   2. **Stochastic Gradient Descent:** Gradient Descent is an optimization algorithm used to minimize a function by iteratively moving in the direction of the steepest decrease of the function. At each iteration, the algorithm calculates the gradient of the loss function concerning the parameters (weights) of the model. It then updates the parameters by moving them in the opposite direction of the gradient, scaled by a small factor known as the learning rate.
+  2. **Stochastic Gradient Descent:** Gradient Descent is an optimization algorithm used to minimize a function by iteratively moving in the direction of the steepest decrease of the function. At each iteration, the algorithm calculates the gradient of the loss function concerning the parameters (weights) of the model. It then updates the parameters by moving them in the opposite direction of the gradient, scaled by a small factor known as the learning rate.
      - In standard Gradient Descent, the algorithm computes the gradient of the loss function over the entire dataset for each iteration, which can be computationally expensive, especially for large datasets.
 Stochastic Gradient Descent addresses this issue by updating the parameters based on the gradient of the loss function computed on a single random data point (or a small batch of data points) at each iteration.
 This randomness in selecting a single data point or a batch makes the optimization process stochastic.
@@ -233,6 +234,64 @@ initial_theta = np.array([0.0])
 learning_rate = 0.01
 
 optimized_theta, loss_values = stochastic_gradient_descent(squared_loss, initial_theta, learning_rate, dataset)
+print("Optimized theta:", optimized_theta)
+print("Final loss:", loss_values[-1])
+```
+ 3.  **Mini-batch Gradient Descent:** Mini-batch Gradient Descent is a variation of the Gradient Descent optimization algorithm. While standard Gradient Descent computes the gradient of the loss function over the entire dataset in each iteration (batch gradient descent) and Stochastic Gradient Descent computes the gradient based on a single random data point, Mini-batch Gradient Descent computes the gradient on small random batches of data points.
+     - By using mini-batches, Mini-batch Gradient Descent combines the advantages of both batch and stochastic gradient descent. It reduces the computational burden compared to batch gradient descent while achieving faster convergence than stochastic gradient descent.
+     - Typically, the size of the mini-batch is chosen based on computational resources and empirical performance. Common choices include 32, 64, or 128 data points per mini-batch.
+``` Python 
+import numpy as np
+
+def mini_batch_gradient_descent(loss_function, initial_theta, learning_rate, dataset, batch_size=32, max_epochs=100, epsilon=1e-6):
+    theta = initial_theta
+    loss_values = []
+    
+    for epoch in range(max_epochs):
+        np.random.shuffle(dataset)
+        epoch_loss = 0.0
+        
+        for batch_start in range(0, len(dataset), batch_size):
+            batch = dataset[batch_start:batch_start+batch_size]
+            gradient = compute_gradient(loss_function, theta, batch)
+            theta -= learning_rate * gradient
+            epoch_loss += loss_function(theta, batch)
+        
+        epoch_loss /= len(dataset)
+        loss_values.append(epoch_loss)
+        
+        if len(loss_values) > 1 and abs(loss_values[-1] - loss_values[-2]) < epsilon:
+            break
+    
+    return theta, loss_values
+
+def compute_gradient(loss_function, theta, batch, epsilon=1e-6):
+    gradient = np.zeros_like(theta)
+    
+    for data_point in batch:
+        for i in range(len(theta)):
+            theta_plus = theta.copy()
+            theta_plus[i] += epsilon
+            gradient[i] += (loss_function(theta_plus, data_point) - loss_function(theta, data_point)) / epsilon
+    
+    return gradient / len(batch)
+
+def squared_loss(theta, batch):
+    X = batch[:, 0]
+    y = batch[:, 1]
+    return np.mean((theta * X - y) ** 2)
+
+np.random.seed(0)
+dataset_size = 100
+X = np.random.rand(dataset_size)
+y = 5 * X + np.random.randn(dataset_size)
+dataset = np.vstack((X, y)).T
+
+initial_theta = np.array([0.0])
+learning_rate = 0.01
+batch_size = 10
+
+optimized_theta, loss_values = mini_batch_gradient_descent(squared_loss, initial_theta, learning_rate, dataset, batch_size)
 print("Optimized theta:", optimized_theta)
 print("Final loss:", loss_values[-1])
 ```
