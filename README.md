@@ -186,3 +186,53 @@ print("Final loss:", loss_values[-1])
      - In standard Gradient Descent, the algorithm computes the gradient of the loss function over the entire dataset for each iteration, which can be computationally expensive, especially for large datasets.
 Stochastic Gradient Descent addresses this issue by updating the parameters based on the gradient of the loss function computed on a single random data point (or a small batch of data points) at each iteration.
 This randomness in selecting a single data point or a batch makes the optimization process stochastic.
+``` Python 
+import numpy as np
+def stochastic_gradient_descent(loss_function, initial_theta, learning_rate, dataset, max_epochs=100, epsilon=1e-6):
+    theta = initial_theta
+    loss_values = []
+    
+    for epoch in range(max_epochs):
+        np.random.shuffle(dataset)
+        epoch_loss = 0.0
+        
+        for data_point in dataset:
+            gradient = compute_gradient(loss_function, theta, data_point)
+            theta -= learning_rate * gradient
+            epoch_loss += loss_function(theta, data_point)
+        
+        epoch_loss /= len(dataset)
+        loss_values.append(epoch_loss)
+        
+        if len(loss_values) > 1 and abs(loss_values[-1] - loss_values[-2]) < epsilon:
+            break
+    
+    return theta, loss_values
+
+def compute_gradient(loss_function, theta, data_point, epsilon=1e-6):
+    gradient = np.zeros_like(theta)
+    
+    for i in range(len(theta)):
+        theta_plus = theta.copy()
+        theta_plus[i] += epsilon
+        gradient[i] = (loss_function(theta_plus, data_point) - loss_function(theta, data_point)) / epsilon
+    
+    return gradient
+
+def squared_loss(theta, data_point):
+    x, y = data_point
+    return (theta * x - y) ** 2
+
+np.random.seed(0)
+dataset_size = 100
+X = np.random.rand(dataset_size)
+y = 5 * X + np.random.randn(dataset_size)
+dataset = np.vstack((X, y)).T
+
+initial_theta = np.array([0.0])
+learning_rate = 0.01
+
+optimized_theta, loss_values = stochastic_gradient_descent(squared_loss, initial_theta, learning_rate, dataset)
+print("Optimized theta:", optimized_theta)
+print("Final loss:", loss_values[-1])
+```
