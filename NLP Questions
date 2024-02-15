@@ -1,22 +1,5 @@
-Tokenization: Implement a function to tokenize a given text.
-Stopwords Removal: Write a program to remove stopwords from a text.
-Word Frequency: Write a program to calculate the frequency of each word in a text.
-Sentence Segmentation: Create a function to split a text into sentences.
-Bag of Words: Implement the bag of words model for a given corpus.
-N-grams: Implement a function to generate n-grams from a text.
-Text Normalization: Implement text normalization techniques like case folding and accent removal.
-Spell Checking: Write a spell checking program for a given text.
-Text Segmentation: Implement a program to segment a text into coherent parts.
-Language Detection: Create a program to detect the language of a given text.
-Named Entity Recognition (NER): Implement a basic NER system.
-Part-of-Speech (POS) Tagging: Write a program to perform POS tagging on a text.
-Lemmatization: Create a function to perform lemmatization on a text.
-Stemming: Implement a stemming algorithm such as Porter or Snowball.
-Dependency Parsing: Write a program to perform dependency parsing on a sentence.
-Semantic Role Labeling (SRL): Write a program to perform semantic role labeling on a sentence.
+
 Word Embeddings: Implement Word2Vec or GloVe for generating word embeddings.
-Named Entity Recognition with Transfer Learning: Write a NER system using transfer learning techniques.
-Named Entity Recognition with CRF: Implement a NER system using conditional random fields.
 Named Entity Recognition with BiLSTM-CRF: Write a NER system using a combination of bidirectional LSTM and conditional random fields.
 Named Entity Linking (NEL): Implement a basic NEL system.
 Named Entity Disambiguation (NED): Implement a basic NED system.
@@ -26,15 +9,12 @@ Coreference Resolution: Write a program to resolve coreferences in a text.
 Relation Extraction: Implement a system to extract relations between entities in a text.
 Sentiment Analysis: Implement a sentiment analysis classifier.
 Sentiment Analysis on Social Media: Write a sentiment analysis classifier specifically for social media text.
-Sentiment Analysis with Transformers: Implement a sentiment analysis model using transformer architectures.
 Sentiment Analysis with LSTM: Write a sentiment analysis model using LSTM neural networks.
 Text Classification: Implement a text classifier for a given set of categories.
 Text Classification with Deep Learning: Implement a deep learning-based text classifier.
-Text Classification with BERT: Implement a text classification model using BERT.
 Text Classification with CNN: Implement a text classification model using convolutional neural networks.
 Question Answering: Create a question answering system using techniques like BERT.
 Text Generation: Implement a text generation model using techniques like LSTM or Transformer.
-Text Generation with GPT-3: Create a text generation model using OpenAI's GPT-3.
 Text Generation in Dialog Systems: Create a text generation model for use in dialog systems.
 Text Summarization: Implement an extractive or abstractive text summarization algorithm.
 Text Summarization with Reinforcement Learning: Create a text summarization model using reinforcement learning techniques.
@@ -44,6 +24,7 @@ Machine Translation with Attention Mechanism: Write a machine translation model 
 Machine Translation with Sequence-to-Sequence Models: Write a machine translation model using sequence-to-sequence models.
 TF-IDF: Write a program to calculate TF-IDF scores for words in a corpus.
 Text Similarity: Write a program to calculate similarity between two texts.
+Implement Siamese Neueral Network for Similarity Search. 
 Implementing a Transformer architecture from scratch: Code an implementation of the Transformer architecture, including self-attention mechanism, feed-forward neural network, and positional encoding.
 Transformer Encoder and Decoder implementation: Write code to implement both the Transformer Encoder and Decoder components separately.
 Positional Encoding: Write a function to generate positional encodings for the input sequences in a Transformer model.
