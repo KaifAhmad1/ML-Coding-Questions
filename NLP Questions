@@ -1,11 +1,4 @@
-
 Word Embeddings: Implement Word2Vec or GloVe for generating word embeddings.
-Named Entity Recognition with BiLSTM-CRF: Write a NER system using a combination of bidirectional LSTM and conditional random fields.
-Named Entity Linking (NEL): Implement a basic NEL system.
-Named Entity Disambiguation (NED): Implement a basic NED system.
-Coreference Resolution: Create a function to resolve coreferences in a text.
-Coreference Resolution with Neural Networks: Write a coreference resolution model using neural network architectures.
-Coreference Resolution: Write a program to resolve coreferences in a text.
 Relation Extraction: Implement a system to extract relations between entities in a text.
 Sentiment Analysis: Implement a sentiment analysis classifier.
 Sentiment Analysis on Social Media: Write a sentiment analysis classifier specifically for social media text.
