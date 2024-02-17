@@ -8,6 +8,7 @@ Cosine Similarity Calculation: Write a program to calculate the cosine similarit
 Okapi BM25: Implement the Okapi BM25 algorithm for document ranking.
 Language Models for Information Retrieval: Implement a basic language model for document retrieval.
 Top-k Retrieval: Write a function to retrieve the top-k documents for a given query.
+Explain all learning to rank algorithms in IR ?
 Term Weighting Schemes: Implement different term weighting schemes like binary, TF, IDF, etc., for document retrieval.
 Inverted Index Compression: Implement compression techniques like front coding or gamma encoding for the inverted index.
 PageRank Algorithm: Write a program to compute the PageRank of web pages in a network.
