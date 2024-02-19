@@ -21,6 +21,7 @@ k-Nearest Neighbors (k-NN) Search: Implement a k-NN search algorithm to find the
 Approximate Nearest Neighbors (ANN): Implement an algorithm for approximate nearest neighbor search, such as Locality Sensitive Hashing (LSH).
 Inverted Index with Vector Space Model: Extend an inverted index to support vector space model operations like cosine similarity.
 k-Means Clustering: Implement the k-means clustering algorithm for vector data.
+Tree Based Indexing methods in Vector Search 
 Hierarchical Clustering: Write a program to perform hierarchical clustering on a set of vectors.
 Vector Quantization: Implement vector quantization techniques like k-means clustering for codebook generation.
 Binary Space Partitioning (BSP): Implement BSP trees for efficient spatial indexing of high-dimensional vectors.
