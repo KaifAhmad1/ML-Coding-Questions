@@ -1,5 +1,4 @@
 Word Embeddings: Implement Word2Vec or GloVe for generating word embeddings.
-Relation Extraction: Implement a system to extract relations between entities in a text.
 Sentiment Analysis: Implement a sentiment analysis classifier.
 Sentiment Analysis on Social Media: Write a sentiment analysis classifier specifically for social media text.
 Sentiment Analysis with LSTM: Write a sentiment analysis model using LSTM neural networks.
