@@ -26,6 +26,7 @@ Hierarchical Clustering: Write a program to perform hierarchical clustering on a
 Vector Quantization: Implement vector quantization techniques like k-means clustering for codebook generation.
 Binary Space Partitioning (BSP): Implement BSP trees for efficient spatial indexing of high-dimensional vectors.
 Discuss ways to improve search space efficiency in approximate nearest neighbor (ANN) search.
+Could you provide insights into enhancing search efficiency in Information Retrieval (IR) systems?
 Product Quantization: Implement product quantization for vector compression and efficient nearest neighbor search.
 Locality-Sensitive Hashing (LSH): Implement LSH for approximate nearest neighbor search in high-dimensional spaces.
 MinHashing: Write a program to perform MinHashing for estimating Jaccard similarity between sets of vectors.
