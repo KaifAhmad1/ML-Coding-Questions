@@ -1,4 +1,5 @@
 Boolean Retrieval Model: Implement a simple Boolean retrieval model to retrieve documents based on Boolean queries.
+How do dimensionality reduction techniques such as Latent Semantic Indexing (LSI) and Singular Value Decomposition (SVD) help in handling sparsity in IR and NLP?
 TF-IDF Calculation: Write a program to calculate TF-IDF scores for terms in a given corpus.
 Vector Space Model (VSM): Implement a basic VSM for document retrieval based on cosine similarity.
 Cosine Similarity Calculation: Write a program to calculate the cosine similarity between two documents.
